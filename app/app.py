@@ -43,7 +43,7 @@ def import_config():
 @app.route("/fetch")
 def fetch():
     url = request.args.get("url", "")
-    resp = requests.get(url, timeout=5)
+    resp = requests.get(url, timeout=5)  # nosemgrep: python.flask.security.injection.ssrf-requests.ssrf-requests -- intentional vuln, reserved as Task 4 pentest target, see SECURITY-FINDINGS.md
     return jsonify(status_code=resp.status_code, body=resp.text[:2048])
 
 
