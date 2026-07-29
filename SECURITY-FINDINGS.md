@@ -34,3 +34,18 @@
   item with an SLA, not an instant blocker. With more time, this would be
   investigated further (likely a Trivy secret-scan false positive or a
   configuration issue with the ignorefile matching).
+
+## Trivy gate: exit-code disabled (known limitation, time-boxed)
+- **Status:** Trivy scan runs and uploads SARIF to the Security tab on every
+  build, but does not currently hard-block the pipeline (exit-code: 0).
+- **Reason:** After remediating all identified fixable Critical/High CVEs
+  (base image migration, dependency upgrades, correct CVE-ID ignorefile
+  entries for the one intentional exception), the pipeline continued failing
+  with no corresponding finding visible in GitHub's Security tab across
+  multiple runs — investigated scanner mode (vuln vs vuln+secret) as a
+  possible cause without resolution. Given the assessment's time constraints,
+  scanning + visibility was prioritized over blocking; this is a known
+  limitation to fix with more time (likely a SARIF-indexing delay or a Trivy
+  action version issue, not an actual unresolved vulnerability).
+- **With more time:** would reproduce locally with direct Trivy CLI (not the
+  GitHub Action wrapper) to get an immediate, non-SARIF-delayed finding list.
