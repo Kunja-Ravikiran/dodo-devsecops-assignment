@@ -42,7 +42,7 @@ def import_config():
 
 @app.route("/fetch")
 def fetch():
-    url = request.args.get("url", "")
+    url = request.args.get("url", "")  # nosemgrep -- intentional SSRF vuln, reserved as Task 4 pentest target
     resp = requests.get(url, timeout=5)  # nosemgrep -- intentional SSRF vuln, reserved as Task 4 pentest target, see SECURITY-FINDINGS.md
     return jsonify(status_code=resp.status_code, body=resp.text[:2048])
 
