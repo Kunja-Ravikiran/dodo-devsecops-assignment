@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: reporting-read-configmaps
+  namespace: payments
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: reporting-read-configmaps
+  namespace: payments
+subjects:
+  - kind: ServiceAccount
+    name: reporting
+    namespace: payments
+roleRef:
+  kind: Role
+  name: reporting-read-configmaps
+  apiGroup: rbac.authorization.k8s.io

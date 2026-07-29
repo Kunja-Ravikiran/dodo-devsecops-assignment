@@ -3,3 +3,6 @@ __pycache__/
 .env
 .DS_Store
 *.log
+secret-raw.yaml
+*.tar.gz
+kubeseal
