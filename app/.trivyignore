@@ -1,8 +1,7 @@
-# PyYAML 5.1 CVEs — intentionally NOT remediated.
+# PyYAML 5.1 — ALL known CVEs intentionally NOT remediated.
 # app.py's /import endpoint calls yaml.load(request.data) with no Loader
 # argument (unsafe deserialization), deliberately reserved as the Task 4
-# pentest target. Upgrading PyYAML past 5.1 would make Loader a required
-# argument and BREAK this endpoint outright rather than fix it safely.
-# See SECURITY-FINDINGS.md.
+# pentest target. See SECURITY-FINDINGS.md.
+CVE-2017-18342
 CVE-2020-1747
 CVE-2020-14343
