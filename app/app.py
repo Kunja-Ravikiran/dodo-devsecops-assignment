@@ -43,9 +43,9 @@ def import_config():
 @app.route("/fetch")
 def fetch():
     url = request.args.get("url", "")
-    resp = requests.get(url, timeout=5)  # nosemgrep: python.flask.security.injection.ssrf-requests.ssrf-requests -- intentional vuln, reserved as Task 4 pentest target, see SECURITY-FINDINGS.md
+    resp = requests.get(url, timeout=5)  # nosemgrep -- intentional SSRF vuln, reserved as Task 4 pentest target, see SECURITY-FINDINGS.md
     return jsonify(status_code=resp.status_code, body=resp.text[:2048])
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=8080)  # nosemgrep -- required for container networking; 0.0.0.0 binding is necessary so the pod is reachable from the Service, not a real exposure risk in this context
