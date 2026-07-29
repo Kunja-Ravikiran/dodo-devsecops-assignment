@@ -43,7 +43,8 @@ jobs:
 
       - name: Build image
         run: |
-          IMAGE=ghcr.io/${{ github.repository_owner }}/ledger-api:${{ github.sha }}
+          OWNER_LC=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          IMAGE=ghcr.io/$OWNER_LC/ledger-api:${{ github.sha }}
           docker build -t "$IMAGE" ./app
           echo "IMAGE=$IMAGE" >> $GITHUB_ENV
 
