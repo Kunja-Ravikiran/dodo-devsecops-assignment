@@ -95,6 +95,6 @@ jobs:
       - name: Generate SLSA provenance attestation
         run: |
           cosign attest --yes \
-            --predicate <(echo '{"buildType":"github-actions","builder":"${{ github.workflow }}","invocation":{"configSource":{"uri":"${{ github.repositoryUrl }}","digest":{"sha1":"${{ github.sha }}"}}}}') \
+            --predicate <(echo '{"buildType":"github-actions","builder":{"id":"${{ github.workflow }}"},"invocation":{"configSource":{"uri":"${{ github.repositoryUrl }}"},"digest":{"sha1":"${{ github.sha }}"}}}') \
             --type slsaprovenance \
             ${{ needs.build-and-push.outputs.digest }}
