@@ -1,0 +1,10 @@
+title = "gitleaks config for ledger-api"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Encrypted SealedSecret ciphertext is not a raw secret; safe to commit by design"
+paths = [
+  '''sealed-secret\.yaml'''
+]
