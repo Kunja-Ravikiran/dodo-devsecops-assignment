@@ -19,6 +19,7 @@ spec:
                 - kube-system
                 - ingress-nginx
                 - kyverno
+                - argocd
       validate:
         message: "Containers must set runAsNonRoot=true; running as root is forbidden."
         pattern:
