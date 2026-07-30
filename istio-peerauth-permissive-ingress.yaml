@@ -1,0 +1,11 @@
+apiVersion: security.istio.io/v1
+kind: PeerAuthentication
+metadata:
+  name: ledger-api-permissive
+  namespace: payments
+spec:
+  selector:
+    matchLabels:
+      app: ledger-api
+  mtls:
+    mode: PERMISSIVE
