@@ -20,6 +20,7 @@ spec:
                 - ingress-nginx
                 - kyverno
                 - argocd
+                - istio-system
       validate:
         message: "Containers must set runAsNonRoot=true; running as root is forbidden."
         pattern:

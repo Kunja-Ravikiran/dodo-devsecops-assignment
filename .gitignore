@@ -6,3 +6,4 @@ __pycache__/
 secret-raw.yaml
 *.tar.gz
 kubeseal
+istio-*/
