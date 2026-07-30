@@ -1,14 +1,17 @@
-# ledger-api
+# Dodo Payments DevSecOps Assessment
 
-Payments microservice for tokenising PANs and serving transaction metadata.
-Deployed on Kubernetes in the `payments` namespace.
+**Candidate:** Kunja Ravi Kiran
+**Repo:** https://github.com/Kunja-Ravikiran/dodo-devsecops-assignment
 
-## Endpoints
+## Tasks Completed
 
-| Method | Path            | Description                          |
-|--------|-----------------|--------------------------------------|
-| GET    | `/health`       | Liveness check                       |
-| POST   | `/tokenize`     | `{"pan": "..."}` → opaque token      |
-| GET    | `/transactions` | Recent transaction records           |
-| POST   | `/import`       | Import a YAML configuration blob     |
-| GET    | `/fetch?url=`   | Fetch a remote resource by URL       |
+- Task 1: Workload hardening (securityContext, Sealed Secrets, RBAC, Kyverno)
+- Task 2: Secure CI/CD (Semgrep/gitleaks/Trivy/Cosign, ArgoCD GitOps)
+- Task 3: Istio zero-trust (mTLS STRICT, AuthorizationPolicy, NetworkPolicy)
+- Task 4: Recon + pentest (dodopayments.tech OSINT + 2 confirmed findings)
+
+See task4/ for pentest report. See SECURITY-FINDINGS.md for policy decisions.
+
+## Evidence
+All screenshots and terminal recordings captured during live demonstration.
+Pipeline runs: https://github.com/Kunja-Ravikiran/dodo-devsecops-assignment/actions
